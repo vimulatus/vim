@@ -1,11 +1,12 @@
 name: CI
 
 on:
-  push:
+  pull:
+    branches-ignore:
+      - main
+  pull-request:
     branches:
       - main
-  pull_request:
-
 permissions:
   actions: read
   contents: read
