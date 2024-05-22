@@ -1,0 +1,27 @@
+name: Linting Pipeline
+
+on:
+  push:
+    branches: [ '*' ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install Deps
+        run: pnpm install
+
+      - name: Run linter
+        run: pnpm run lint
