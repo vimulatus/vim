@@ -19,7 +19,7 @@
           "apps/portfolio/src/favicon.ico",
           "apps/portfolio/src/assets"
         ],
-        "styles": ["apps/portfolio/src/styles.css"],
+        "styles": ["styles/styles.css"],
         "scripts": [],
         "server": "apps/portfolio/src/main.server.ts",
         "prerender": true,
