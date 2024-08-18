@@ -8,6 +8,5 @@ module.exports = {
       "always",
       ["fix", "docs", "chore", "style", "perf", "feat", "build"],
     ],
-    "scope-enum": [2, "always", ["turbo", "config", "package", "app", "api"]],
   },
 };
