@@ -5,9 +5,16 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{json,html,ts,tsx,md}\"",
+    "format:hook": "prettier --write --ignore-unknown",
+    "commit:hook": "commitlint --edit",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
     "prettier": "^3.2.5",
     "turbo": "^2.0.14",
     "typescript": "^5.4.5"
@@ -16,8 +23,14 @@
     "node": ">=18"
   },
   "packageManager": "bun@1.1.22",
+  "lint-staged": {
+    "*.{json,js,ts,jsx,tsx,html,md}": [
+      "bun run format:hook"
+    ]
+  },
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "services/*"
   ]
 }

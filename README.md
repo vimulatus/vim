@@ -1,16 +1,17 @@
 # TODO:
+
 - [ ] Setup Tailwind
-- [ ] Setup commitlint
-- [ ] Setup lint-staged
-- [ ] Setup husky
+- [x] Setup commitlint
+- [x] Setup lint-staged
+- [x] Setup husky
 - [ ] Setup astro blog
 - [ ] Setup payload cms
 - [ ] Setup ci/cd w/ Github Actions
 - [ ] Setup logging w/ Prometheus and Grafana
 - [ ] Setup error management w/ Sentry
 
-
 # Projects:
+
 - [ ] TODO
 - [ ] Money Management
 - [ ] Password Manager & Generator
