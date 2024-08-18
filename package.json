@@ -5,7 +5,7 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{json,html,ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{json,html,ts,tsx,js,jsx,md}\"",
     "format:hook": "prettier --write --ignore-unknown",
     "commit:hook": "commitlint --edit",
     "prepare": "husky"

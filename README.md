@@ -1,6 +1,6 @@
 # TODO:
 
-- [ ] Setup Tailwind
+- [x] Setup Tailwind
 - [x] Setup commitlint
 - [x] Setup lint-staged
 - [x] Setup husky
