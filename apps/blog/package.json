@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "lint": "eslint . --max-warnings 0",
     "astro": "astro"
   },
   "dependencies": {
@@ -23,9 +24,11 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@vim/eslint-config": "*",
     "@vim/tailwind-config": "*",
     "@vim/typescript-config": "*",
-    "@vim/eslint-config": "*",
-    "@vim/ui": "*"
+    "@vim/ui": "*",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^1.2.3"
   }
 }
