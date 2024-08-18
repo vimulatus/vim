@@ -4,7 +4,7 @@
 - [x] Setup commitlint
 - [x] Setup lint-staged
 - [x] Setup husky
-- [ ] Setup astro blog
+- [x] Setup astro blog
 - [ ] Setup payload cms
 - [ ] Setup ci/cd w/ Github Actions
 - [ ] Setup logging w/ Prometheus and Grafana
