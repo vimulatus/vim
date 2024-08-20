@@ -1,3 +1,20 @@
+import { Dock, DockItem } from "@vim/ui/components/dock";
+import { House, Pencil, Github } from "lucide-react";
+
 export default function Home() {
-  return <div className="bg-black">What's up</div>;
+  return (
+    <div className="flex items-center h-full">
+      <Dock>
+        <DockItem tooltip="Home">
+          <House />
+        </DockItem>
+        <DockItem tooltip="Edit">
+          <Pencil />
+        </DockItem>
+        <DockItem tooltip="Github">
+          <Github />
+        </DockItem>
+      </Dock>
+    </div>
+  );
 }
