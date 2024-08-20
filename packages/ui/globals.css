@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -34,6 +36,8 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    --font-sans: "Noto Sans", sans-serif;
   }
 
   .dark {
@@ -67,6 +71,8 @@
     --ring: 216 34% 17%;
 
     --radius: 0.5rem;
+
+    --font-sans: "Noto Sans", sans-serif;
   }
 }
 
@@ -78,4 +84,11 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  .outline-2 {
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 2px black;
+  }
 }
+
+
