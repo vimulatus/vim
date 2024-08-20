@@ -11,7 +11,7 @@
 
 # Projects:
 
-- [ ] TODO
+- [ ] Time Manager: Scheduler
 - [ ] Money Management
 - [ ] Password Manager & Generator
 - [ ] Some kind of simulation
