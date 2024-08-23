@@ -11,7 +11,7 @@
   "rsc": false,
   "tsx": true,
   "aliases": {
-    "components": "@vim/ui/components",
+    "components": "@vim/ui",
     "utils": "@vim/ui/lib/utils"
   }
 }
