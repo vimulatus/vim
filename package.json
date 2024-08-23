@@ -4,33 +4,21 @@
     "@commitlint/cli": "^19.4.0",
     "@commitlint/config-conventional": "^19.2.2",
     "husky": "^9.1.4",
-    "lint-staged": "^15.2.9",
-    "prettier": "^3.2.5",
     "turbo": "^2.0.14",
     "typescript": "^5.4.5"
   },
   "engines": {
     "node": ">=18"
   },
-  "lint-staged": {
-    "*.{json,js,ts,jsx,tsx,html,md}": [
-      "bun run format:hook"
-    ]
-  },
   "packageManager": "bun@1.1.22",
   "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{json,html,ts,tsx,js,jsx,md}\"",
-    "format:hook": "prettier --write --ignore-unknown",
+    "lint:full": "bunx biome check --write .",
+    "lint": "bunx biome check --write --changed",
     "commit:hook": "commitlint --edit",
     "prepare": "husky"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "services/*"
-  ]
+  "workspaces": ["apps/*", "packages/*", "services/*"]
 }

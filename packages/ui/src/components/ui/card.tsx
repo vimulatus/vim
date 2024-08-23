@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-redeclare
 import * as React from "react";
 
 import { cn } from "@vim/ui/lib/utils";

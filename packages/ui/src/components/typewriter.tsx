@@ -1,8 +1,10 @@
 "use client";
 
 import { cn } from "@vim/ui/lib/utils";
-import { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
+
+const TEXT_LENGTH_ERROR = "Oops! Seems like no text was provided!";
 
 export function Typewriter({
   texts,
@@ -26,7 +28,9 @@ export function Typewriter({
   const [displayedText, setDisplayedText] = useState<string>("");
   const [erase, setErase] = useState<boolean>(false);
   const [j, setJ] = useState<number>(getRandom());
-  const [currText, setCurrText] = useState<string>(texts[j]!);
+  const [currText, setCurrText] = useState<string>(
+    texts[j] ?? TEXT_LENGTH_ERROR,
+  );
   const [i, setI] = useState<number>(0);
 
   useEffect(() => {
@@ -36,7 +40,7 @@ export function Typewriter({
         setI(i + 1);
       }
 
-      if (!erase && !disableChange && i == currText.length) {
+      if (!erase && !disableChange && i === currText.length) {
         setTimeout(() => {
           setErase(true);
           clearInterval(typingEffect);
@@ -52,10 +56,10 @@ export function Typewriter({
         setI(i - 1);
       }
 
-      if (erase && i == 0) {
+      if (erase && i === 0) {
         setErase(false);
         clearInterval(eraseEffect);
-        setCurrText(texts[j]!);
+        setCurrText(texts[j] ?? TEXT_LENGTH_ERROR);
       }
     }, eraseDuration);
 
@@ -79,7 +83,7 @@ export function Typewriter({
         }}
         transition={{
           duration: 0.8,
-          repeat: Infinity,
+          repeat: Number.POSITIVE_INFINITY,
           repeatType: "reverse",
         }}
         className={cn("block rounded-sm scale-125 -ml-1 mb-3", className)}

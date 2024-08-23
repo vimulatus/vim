@@ -10,11 +10,8 @@
     "tailwind-merge": "^2.5.2"
   },
   "devDependencies": {
-    "@types/eslint": "^9.6.0",
     "@types/node": "^22.4.0",
-    "@vim/eslint-config": "*",
     "@vim/typescript-config": "*",
-    "eslint": "^8.57.0",
     "typescript": "^5.3.3"
   }
 }

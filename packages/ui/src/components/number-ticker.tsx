@@ -1,7 +1,7 @@
 "use client";
 
-import { useInView, useMotionValue, useSpring } from "framer-motion";
 import { cn } from "@vim/ui/lib/utils";
+import { useInView, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 
 export function NumberTicker({
@@ -31,7 +31,7 @@ export function NumberTicker({
       setTimeout(() => {
         motionValue.set(value);
       }, delay * 1000);
-  }, [motionValue, isInView, delay, value, start]);
+  }, [motionValue, isInView, delay, value]);
 
   useEffect(
     () =>

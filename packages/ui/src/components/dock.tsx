@@ -1,35 +1,42 @@
 "use client";
 
+import { cn } from "@vim/ui/lib/utils";
 import {
   AnimatePresence,
+  type MotionValue,
   motion,
-  MotionValue,
   useMotionValue,
   useSpring,
   useTransform,
 } from "framer-motion";
-import { cn } from "@vim/ui/lib/utils";
-import { ReactNode, useRef, Children, cloneElement, useState } from "react";
+import {
+  Children,
+  type ReactElement,
+  type ReactNode,
+  cloneElement,
+  useRef,
+  useState,
+} from "react";
 
 export function Dock({
   className,
   children,
 }: {
   className?: string;
-  children: ReactNode;
+  children: ReactElement;
 }) {
-  let mouseX = useMotionValue(Infinity);
+  const mouseX = useMotionValue(Number.POSITIVE_INFINITY);
 
   return (
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
-      onMouseLeave={() => mouseX.set(Infinity)}
+      onMouseLeave={() => mouseX.set(Number.POSITIVE_INFINITY)}
       className={cn(
         "mx-auto flex h-16 gap-1 items-end rounded-2xl bg-white/10 dark:bg-black/10 pb-3 border fixed bottom-2 inset-x-0 max-w-fit z-50",
         className,
       )}
     >
-      {Children.map(children, (child: any) => {
+      {Children.map(children, (child: ReactElement) => {
         return cloneElement(child, {
           mouseX: mouseX,
         });
@@ -44,46 +51,50 @@ export function DockItem({
   tooltip,
   children,
 }: {
-  mouseX?: MotionValue;
+  mouseX: MotionValue;
   className?: string;
   tooltip?: string;
   children: ReactNode;
 }) {
-  let ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
-  let distance = useTransform(mouseX!, (val) => {
-    let bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+  const distance = useTransform(mouseX ?? 0, (val) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
 
     return val - bounds.x - bounds.width / 2;
   });
 
-  let widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  let heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const widthTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const heightTransform = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
 
-  let widthTransformIcon = useTransform(distance, [-150, 0, 150], [20, 40, 20]);
-  let heightTransformIcon = useTransform(
+  const widthTransformIcon = useTransform(
+    distance,
+    [-150, 0, 150],
+    [20, 40, 20],
+  );
+  const heightTransformIcon = useTransform(
     distance,
     [-150, 0, 150],
     [20, 40, 20],
   );
 
-  let width = useSpring(widthTransform, {
+  const width = useSpring(widthTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  let height = useSpring(heightTransform, {
+  const height = useSpring(heightTransform, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
 
-  let widthIcon = useSpring(widthTransformIcon, {
+  const widthIcon = useSpring(widthTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,
   });
-  let heightIcon = useSpring(heightTransformIcon, {
+  const heightIcon = useSpring(heightTransformIcon, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,

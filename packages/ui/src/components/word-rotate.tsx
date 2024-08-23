@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@vim/ui/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useEffect, useState } from "react";
 
 export function WordRotate({
   words,
@@ -25,7 +25,7 @@ export function WordRotate({
     return () => {
       clearInterval(rotateEffect);
     };
-  }, [words, duration]);
+  }, [words, duration, getRandom]);
 
   return (
     <AnimatePresence mode="wait">

@@ -1,8 +1,0 @@
-{
-  "extends": "@vim/typescript-config/react-library.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "include": ["src", "turbo", "*.config.ts", "lib"],
-  "exclude": ["node_modules", "dist"]
-}

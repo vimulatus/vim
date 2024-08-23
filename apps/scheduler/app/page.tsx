@@ -1,5 +1,5 @@
 import { Dock, DockItem } from "@vim/ui/components/dock";
-import { House, Pencil, Github } from "lucide-react";
+import { Github, House, Pencil } from "lucide-react";
 
 export default function Home() {
   return (
